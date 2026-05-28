@@ -4,6 +4,12 @@ public class Persona {
     private String apellido;
     private int edad;
 
+    public Persona(String nombre, String apellido) {
+
+        setNombre(nombre);
+        setApellido(apellido);
+    }
+
     public Persona(String nombre, String apellido, int edad) {
 
         setNombre(nombre);
@@ -37,7 +43,7 @@ public class Persona {
     }
 
     public void setEdad(int edad) {
-        
+
         this.edad = edad;
     }
 }
