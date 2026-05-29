@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class GestionAcademica {
 
-    private ArrayList <Estudiante> estudiantes;
-    private ArrayList <Profesor> profesores;
-    private ArrayList <Materia> materias;
+    private ArrayList <Estudiante> estudiantes = new ArrayList<>();
+    private ArrayList <Profesor> profesores = new ArrayList<>();
+    private ArrayList <Materia> materias = new ArrayList<>();
 
     public void registrarEstudiante(String matricula, String nombre, String apellido, int edad, String carrera, String fechaInscripcion) {
 
@@ -49,5 +49,24 @@ public class GestionAcademica {
 
         Materia materia = new Materia(codigo, nombreMateria, cantidadCreditos);
         materias.add(materia);
+    }
+
+    public void asignarMateria(String matricula, int codigo) {
+        
+        for (Estudiante estudiante : estudiantes) {
+
+            if (matricula.equals(estudiante.getMatricula())) {
+
+                ArrayList<Materia> materiasEstudiante = estudiante.getMaterias();
+
+                for (Materia materia : materias) {
+
+                    if (codigo == materia.getCodigo()) {
+
+                        materiasEstudiante.add(materia);
+                    }
+                }
+            }
+        }
     }
 }
