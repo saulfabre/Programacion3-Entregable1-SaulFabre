@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class Estudiante extends Persona {
 
     private String matricula;
     private String carrera;
     private String fechaInscripcion;
+    private ArrayList<Materia> materias = new ArrayList<>();
 
     public Estudiante(String nombre, String apellido, int edad, String matricula, String carrera, String fechaInscripcion) {
 
@@ -27,6 +30,11 @@ public class Estudiante extends Persona {
         return fechaInscripcion;
     }
 
+    public ArrayList<Materia> getMaterias() {
+
+        return materias;
+    }
+
     public void setMatricula(String matricula) {
 
         this.matricula = matricula;
@@ -40,5 +48,9 @@ public class Estudiante extends Persona {
     public void setFechaInscripcion(String fechaInscripcion) {
 
         this.fechaInscripcion = fechaInscripcion;
+    }
+
+    public void setMaterias(ArrayList<Materia> materias) {
+        this.materias = materias;
     }  
 }
