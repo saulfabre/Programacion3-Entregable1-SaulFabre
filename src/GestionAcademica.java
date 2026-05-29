@@ -74,4 +74,28 @@ public class GestionAcademica {
         System.out.println("MATRICULA NO ENCONTRADA ");
         return;
     }
+
+    public void registrarCalificacion(String matricula, double calificacion, int codigo) {
+
+        for (Estudiante estudiante : estudiantes) {
+
+            if (matricula.equals(estudiante.getMatricula())) {
+
+                ArrayList<Materia> materiasEstudiante = estudiante.getMaterias();
+                
+                for (Materia materia : materiasEstudiante) {
+
+                    if (codigo == materia.getCodigo()) {
+
+                        materia.setCalificacion(calificacion);
+                        return;
+                    }
+                }
+                System.out.println("MATERIA NO ENCONTRADA ");
+                return;
+            }
+        }
+        System.out.println("MATRICULA NO ENCONTRADA ");
+        return;
+    }
 }
