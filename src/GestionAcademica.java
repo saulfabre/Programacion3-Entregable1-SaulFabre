@@ -64,9 +64,14 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materiasEstudiante.add(materia);
+                        return;
                     }
                 }
+                System.out.println("CODIGO NO ENCONTRADO ");
+                return;
             }
         }
+        System.out.println("MATRICULA NO ENCONTRADA ");
+        return;
     }
 }
