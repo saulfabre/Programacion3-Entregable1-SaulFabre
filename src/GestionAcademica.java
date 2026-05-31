@@ -160,14 +160,63 @@ public class GestionAcademica {
         }
     }
 
+    public void mostrarPromedio() {
+
+        System.out.println("====================================");
+        System.out.println("         REPORTE PROMEDIOS ");
+
+        for (Estudiante estudiante : estudiantes) {
+
+            double sumaPromedio = 0;
+            double promedio = 0;
+            String aprobadoDesaprobado = "";
+
+            ArrayList<Materia> materiasEstudiante = estudiante.getMaterias();
+
+            int cantidadMaterias = materiasEstudiante.size();
+
+            for (Materia materia : materiasEstudiante) {
+
+                sumaPromedio+= materia.getCalificacion();
+            }
+
+            if (cantidadMaterias == 0) {
+
+            System.out.println(estudiante.getNombre().toUpperCase() + " NO LLEVA MATERIAS ");
+            System.out.println("====================================");
+            continue;
+        }
+
+            promedio = sumaPromedio / cantidadMaterias;
+
+            if (promedio >= 70) {
+
+                aprobadoDesaprobado = "APROBADO";
+
+                System.out.println(estudiante.getNombre().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
+                System.out.println("====================================");
+            }
+
+            else {
+
+                aprobadoDesaprobado = "DESAPROBADO";
+
+                System.out.println(estudiante.getNombre().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
+                System.out.println("====================================");
+            }   
+        }
+    }
+
     public void mostrarEstudiante(Estudiante estudiante) {
 
+        System.out.println("====================================");
         System.out.println("MATRICULA: " + estudiante.getMatricula());
         System.out.println("NOMBRE: " + estudiante.getNombre());
         System.out.println("APELLIDO: " + estudiante.getApellido());
         System.out.println("EDAD: " + estudiante.getEdad());
         System.out.println("CARRERA: " + estudiante.getCarrera());
         System.out.println("FECHA INSCRIPCION: " + estudiante.getFechaInscripcion());
+        System.out.println("====================================");
     }
 }
 
