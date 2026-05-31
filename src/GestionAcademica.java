@@ -117,6 +117,20 @@ public class GestionAcademica {
         }
     }
 
+    public void mostrarMaterias() {
+
+        System.out.println("====================================");
+        System.out.println("       MATERIAS REGISTRADAS \n" );
+
+        for (Materia materia : materias) {
+
+            System.out.println("CODIGO: " + materia.getCodigo());
+            System.out.println("NOMBRE: " + materia.getNombreMateria());
+            System.out.println("CREDITOS: " + materia.getCantidadCreditos());
+
+            System.out.println("====================================");
+        }
+    }
 }
 
     
