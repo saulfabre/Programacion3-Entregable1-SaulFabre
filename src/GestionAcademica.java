@@ -110,9 +110,23 @@ public class GestionAcademica {
             }
 
             System.out.println("NO ENCONTRADO" + matricula.toUpperCase());
+        }
     }
 
-}
+    public void buscarEstudianteNombre(String nombre) {
+
+        for (Estudiante estudiante : estudiantes) {
+
+            if (nombre.equals(estudiante.getNombre())) {
+                System.out.println("ENCONTRADO" + nombre.toUpperCase() + "\n");
+                mostrarEstudiante(estudiante);
+                return;
+            }
+
+            System.out.println("NO ENCONTRADO" + nombre.toUpperCase());
+        }
+    }
+
     public void mostrarEstudiantes() {
 
         System.out.println("====================================");
