@@ -19,8 +19,7 @@ public class GestionAcademica {
 
         Estudiante estudiante = new Estudiante(nombre, apellido, edad, matricula, carrera);
         estudiantes.add(estudiante);
-        System.out.println("ESTUDIANTE: " + nombre.toUpperCase() + " " + apellido.toUpperCase() + " REGISTRADO ");
-
+        System.out.println("\nESTUDIANTE: " + nombre.toUpperCase() + " " + apellido.toUpperCase() + " REGISTRADO ");
     }
 
     public void registrarProfesor(String nombre, String apellido, String especialidad, int codigo) {
@@ -36,7 +35,7 @@ public class GestionAcademica {
 
         Profesor profesor = new Profesor(nombre, apellido, especialidad, codigo);
         profesores.add(profesor);
-        System.out.println("PROFESOR: " + nombre.toUpperCase() + " " + nombre.toUpperCase() + " REGISTRADO ");
+        System.out.println("\nPROFESOR: " + nombre.toUpperCase() + " " + apellido.toUpperCase() + " REGISTRADO ");
     }
 
     public void registrarMateria(String nombreMateria, int cantidadCreditos, int codigo) {
@@ -52,7 +51,7 @@ public class GestionAcademica {
 
         Materia materia = new Materia(codigo, nombreMateria, cantidadCreditos);
         materias.add(materia);
-        System.out.println("MATERIA: " + nombreMateria.toUpperCase() + " " +  "REGISTRADA");
+        System.out.println("\nMATERIA: " + nombreMateria.toUpperCase() + " " +  "REGISTRADA");
     }
 
     public void asignarMateria(String matricula, int codigo) {
@@ -68,7 +67,7 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materiasEstudiante.add(materia);
-                        System.out.println("MATERIA ASIGNADA A: " + estudiante.getNombre().toUpperCase());
+                        System.out.println("\nMATERIA " + materia.getNombreMateria() +" ASIGNADA A: " + estudiante.getNombre().toUpperCase() + " " + estudiante.getApellido().toUpperCase());
                         return;
                     }
                 }
@@ -103,19 +102,31 @@ public class GestionAcademica {
         System.out.println("MATRICULA NO ENCONTRADA ");
     }
 
-    public void buscarEstudiante(String matricula, String nombre) {
+    public void buscarEstudianteMatricula(String matricula) {
 
         for (Estudiante estudiante : estudiantes) {
 
-            if (matricula.equals(estudiante.getMatricula()) || nombre.equals(estudiante.getNombre())) {
-                System.out.println("ENCONTRADO" + matricula.toUpperCase() + "\n");
-                mostrarEstudiante(estudiante);
-                return;
-            }
-
-            System.out.println("NO ENCONTRADO" + matricula.toUpperCase() + " - " + nombre.toUpperCase());
+            if (matricula.equals(estudiante.getMatricula())) {
+                    System.out.println("\nENCONTRADO: " + matricula.toUpperCase());
+                        mostrarEstudiante(estudiante);
+                        return;
+                    }
+                }
+            System.out.println("NO ENCONTRADO: " + matricula.toUpperCase());
         }
-    }
+    
+    public void buscarEstudianteNombre(String nombre) {
+
+        for (Estudiante estudiante : estudiantes) {
+
+            if (nombre.equals(estudiante.getNombre())) {
+                    System.out.println("\nENCONTRADO: " + nombre.toUpperCase());
+                        mostrarEstudiante(estudiante);
+                        return;
+                    }
+                }
+            System.out.println("NO ENCONTRADO: " + nombre.toUpperCase());
+        }
 
     public void mostrarEstudiantes() {
 
