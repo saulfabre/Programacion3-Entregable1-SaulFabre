@@ -99,6 +99,20 @@ public class GestionAcademica {
         return;
     }
 
+    public void buscarEstudianteMatricula(String matricula) {
+
+        for (Estudiante estudiante : estudiantes) {
+
+            if (matricula.equals(estudiante.getMatricula())) {
+                System.out.println("ENCONTRADO" + matricula.toUpperCase() + "\n");
+                mostrarEstudiante(estudiante);
+                return;
+            }
+
+            System.out.println("NO ENCONTRADO" + matricula.toUpperCase());
+    }
+
+}
     public void mostrarEstudiantes() {
 
         System.out.println("====================================");
@@ -130,6 +144,16 @@ public class GestionAcademica {
 
             System.out.println("====================================");
         }
+    }
+
+    public void mostrarEstudiante(Estudiante estudiante) {
+
+        System.out.println("MATRICULA: " + estudiante.getMatricula());
+        System.out.println("NOMBRE: " + estudiante.getNombre());
+        System.out.println("APELLIDO: " + estudiante.getApellido());
+        System.out.println("EDAD: " + estudiante.getEdad());
+        System.out.println("CARRERA: " + estudiante.getCarrera());
+        System.out.println("FECHA INSCRIPCION: " + estudiante.getFechaInscripcion());
     }
 }
 
