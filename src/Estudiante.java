@@ -1,18 +1,19 @@
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Estudiante extends Persona {
 
     private String matricula;
     private String carrera;
-    private String fechaInscripcion;
+    private LocalDate fechaInscripcion;
     private ArrayList<Materia> materias = new ArrayList<>();
 
-    public Estudiante(String nombre, String apellido, int edad, String matricula, String carrera, String fechaInscripcion) {
+    public Estudiante(String nombre, String apellido, int edad, String matricula, String carrera) {
 
         super(nombre, apellido, edad);
         setMatricula(matricula);
         setCarrera(carrera);
-        setFechaInscripcion(fechaInscripcion);
+        setFechaInscripcion(LocalDate.now());
     }
 
     public String getMatricula() {
@@ -25,7 +26,7 @@ public class Estudiante extends Persona {
         return carrera;
     }
 
-    public String getFechaInscripcion() {
+    public LocalDate getFechaInscripcion() {
 
         return fechaInscripcion;
     }
@@ -45,7 +46,7 @@ public class Estudiante extends Persona {
         this.carrera = carrera;
     }
 
-    public void setFechaInscripcion(String fechaInscripcion) {
+    public void setFechaInscripcion(LocalDate fechaInscripcion) {
 
         this.fechaInscripcion = fechaInscripcion;
     }
