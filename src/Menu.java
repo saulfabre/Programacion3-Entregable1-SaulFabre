@@ -4,8 +4,138 @@ public class Menu {
 
     static Scanner scanner = new Scanner(System.in);
 
+    static GestionAcademica sistema = new GestionAcademica();
+
     public static void main(String[] args) {
 
+        int opcion;
+
+        do {
+
+            opcion = mostrarMenu();
+
+            switch (opcion) {
+
+                case 1:
+
+                    System.out.print("NOMBRE ESTUDIANTE: ");
+                    String nombreEstudiante = scanner.nextLine();
+
+                    System.out.print("APELLIDO ESTUDIANTE: ");
+                    String apellidoEstudiante = scanner.nextLine();
+
+                    System.out.print("EDAD ESTUDIANTE: ");
+                    int edadEstudiante = scanner.nextInt();
+
+                    System.out.print("MATRICULA ESTUDIANTE: ");
+                    String matriculaEstudiante = scanner.next();
+
+                    System.out.print("CARRERA ESTUDIANTE: ");
+                    String carreraEstudiante = scanner.nextLine();
+
+                    sistema.registrarEstudiante(matriculaEstudiante, nombreEstudiante, apellidoEstudiante, edadEstudiante, carreraEstudiante);
+
+                    break;
+
+                case 2:
+
+                    System.out.print("NOMBRE PROFESOR: ");
+                    String nombreProfesor = scanner.nextLine();
+
+                    System.out.print("APELLIDO PROFESOR: ");
+                    String apellidoProfesor = scanner.nextLine();
+
+                    System.out.print("ESPECIALIDAD PROFESOR: ");
+                    String especialidadProfesor = scanner.nextLine();
+
+                    System.out.print("CODIGO PROFESOR: ");
+                    int codigoProfesor = scanner.nextInt();
+
+                   sistema.registrarProfesor(nombreProfesor, apellidoProfesor, especialidadProfesor, codigoProfesor);
+
+                   break;
+
+                case 3:
+
+                    System.out.print("NOMBRE MATERIA: ");
+                    String nombreMateria = scanner.nextLine();
+
+                    System.out.print("CANTIDAD CREDITOS: ");
+                    int cantidadCrditos = scanner.nextInt();
+
+                    System.out.print("CODIGO PROFESOR: ");
+                    int codigoMateria = scanner.nextInt();
+
+                   sistema.registrarMateria(nombreMateria, cantidadCrditos, codigoMateria);
+
+                   break;
+
+                case 4:
+
+                    System.out.print("MATRICULA ESTUDIANTE: ");
+                    String matriculaEstudianteBuscado = scanner.next();
+
+                    System.out.print("CODIGO MATERIA: ");
+                    int codigoMateriaBuscado = scanner.nextInt();
+
+                    sistema.asignarMateria(matriculaEstudianteBuscado, codigoMateriaBuscado);
+
+                    break;
+
+                case 5:
+
+                    System.out.print("MATRICULA ESTUDIANTE: ");
+                    String matriculaEstudianteRegistrado = scanner.next();
+
+                    System.out.print("CODIGO MATERIA: ");
+                    int codigoMateriaRegistrado = scanner.nextInt();
+
+                    System.out.print("CALIFICACION: ");
+                    double calificacionEstudiante = scanner.nextDouble();
+
+                    sistema.registrarCalificacion(matriculaEstudianteRegistrado, calificacionEstudiante, codigoMateriaRegistrado);
+
+                    break;
+
+                case 6:
+
+                    System.out.print("MATRICULA ESTUDIANTE: ");
+                    String buscarEstudianteMatricula = scanner.next();
+
+                    System.out.print("NOMBRE ESTUDIANTE: ");
+                    String buscarEstudianteNombre = scanner.nextLine();
+
+                    sistema.buscarEstudiante(buscarEstudianteMatricula, buscarEstudianteNombre);
+
+                    break;
+
+                case 7:
+
+                    sistema.mostrarEstudiantes();
+
+                    break;
+
+                case 8:
+
+                sistema.mostrarMaterias();
+
+                break;
+
+            case 9:
+
+                sistema.mostrarPromedio();
+
+                break;
+
+            case 10:
+
+                break;
+
+                default:
+                    System.out.println("OPCION INVALIDA!!!");
+            }
+
+        } while (opcion != 10);
     }
 
     public static int mostrarMenu() {
