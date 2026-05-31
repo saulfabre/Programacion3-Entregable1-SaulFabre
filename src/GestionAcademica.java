@@ -19,6 +19,8 @@ public class GestionAcademica {
 
         Estudiante estudiante = new Estudiante(nombre, apellido, edad, matricula, carrera);
         estudiantes.add(estudiante);
+        System.out.println("ESTUDIANTE: " + nombre.toUpperCase() + " " + apellido.toUpperCase() + " REGISTRADO ");
+
     }
 
     public void registrarProfesor(String nombre, String apellido, String especialidad, int codigo) {
@@ -34,6 +36,7 @@ public class GestionAcademica {
 
         Profesor profesor = new Profesor(nombre, apellido, especialidad, codigo);
         profesores.add(profesor);
+        System.out.println("PROFESOR: " + nombre.toUpperCase() + " " + nombre.toUpperCase() + " REGISTRADO ");
     }
 
     public void registrarMateria(String nombreMateria, int cantidadCreditos, int codigo) {
@@ -49,6 +52,7 @@ public class GestionAcademica {
 
         Materia materia = new Materia(codigo, nombreMateria, cantidadCreditos);
         materias.add(materia);
+        System.out.println("MATERIA: " + nombreMateria.toUpperCase() + " " +  "REGISTRADA");
     }
 
     public void asignarMateria(String matricula, int codigo) {
@@ -64,6 +68,7 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materiasEstudiante.add(materia);
+                        System.out.println("MATERIA ASIGNADA A: " + estudiante.getNombre().toUpperCase());
                         return;
                     }
                 }
@@ -72,7 +77,6 @@ public class GestionAcademica {
             }
         }
         System.out.println("MATRICULA NO ENCONTRADA ");
-        return;
     }
 
     public void registrarCalificacion(String matricula, double calificacion, int codigo) {
@@ -88,6 +92,7 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materia.setCalificacion(calificacion);
+                        System.out.println("CALIFICACION " + calificacion + "REGISTRADA A " + estudiante.getNombre() + " - " + materia.getNombreMateria());
                         return;
                     }
                 }
@@ -96,7 +101,6 @@ public class GestionAcademica {
             }
         }
         System.out.println("MATRICULA NO ENCONTRADA ");
-        return;
     }
 
     public void buscarEstudianteMatricula(String matricula) {
@@ -219,6 +223,3 @@ public class GestionAcademica {
         System.out.println("====================================");
     }
 }
-
-    
-

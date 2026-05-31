@@ -34,15 +34,36 @@ public class Persona {
 
     public void setNombre(String nombre) {
 
+        if (nombre.isBlank()) {
+
+            System.out.println("ERROR: NOMBRE VACIO ");
+            this.nombre = "ERROR";
+            return;
+        }
+
         this.nombre = nombre;
     }
 
     public void setApellido(String apellido) {
 
+        if (apellido.isBlank()) {
+
+            System.out.println("ERROR: APELLIDO VACIO ");
+            this.apellido = "ERROR";
+            return;
+        }
+
         this.apellido = apellido;
     }
 
     public void setEdad(int edad) {
+
+        if (edad <= 0) {
+
+            System.out.println("ERROR: EDAD INVALIDA ");
+            this.edad = 1;
+            return;
+        }
 
         this.edad = edad;
     }

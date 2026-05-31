@@ -38,10 +38,24 @@ public class Estudiante extends Persona {
 
     public void setMatricula(String matricula) {
 
+        if (matricula.isBlank()) {
+
+            System.out.println("ERROR: MATRICULA VACIA ");
+            this.matricula = "ERROR";
+            return;
+        }
+
         this.matricula = matricula;
     }
 
     public void setCarrera(String carrera) {
+
+        if (carrera.isBlank()) {
+
+            System.out.println("ERROR: CARRERA VACIA ");
+            this.carrera = "ERROR";
+            return;
+        }
 
         this.carrera = carrera;
     }
