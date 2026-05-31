@@ -6,7 +6,7 @@ public class GestionAcademica {
     private ArrayList <Profesor> profesores = new ArrayList<>();
     private ArrayList <Materia> materias = new ArrayList<>();
 
-    public void registrarEstudiante(String matricula, String nombre, String apellido, int edad, String carrera, String fechaInscripcion) {
+    public void registrarEstudiante(String matricula, String nombre, String apellido, int edad, String carrera) {
 
         for (Estudiante estudiante : estudiantes) {
 
@@ -17,7 +17,7 @@ public class GestionAcademica {
             }
         }
 
-        Estudiante estudiante = new Estudiante(nombre, apellido, edad, matricula, carrera, fechaInscripcion);
+        Estudiante estudiante = new Estudiante(nombre, apellido, edad, matricula, carrera);
         estudiantes.add(estudiante);
     }
 
@@ -98,4 +98,26 @@ public class GestionAcademica {
         System.out.println("MATRICULA NO ENCONTRADA ");
         return;
     }
+
+    public void mostrarEstudiantes() {
+
+        System.out.println("====================================");
+        System.out.println("       ESTUDIANTES REGISTRADOS \n" );
+
+        for (Estudiante estudiante : estudiantes) {
+
+            System.out.println("MATRICULA: " + estudiante.getMatricula());
+            System.out.println("NOMBRE: " + estudiante.getNombre());
+            System.out.println("APELLIDO: " + estudiante.getApellido());
+            System.out.println("EDAD: " + estudiante.getEdad());
+            System.out.println("CARRERA: " + estudiante.getCarrera());
+            System.out.println("FECHA INSCRIPCION: " + estudiante.getFechaInscripcion());
+
+            System.out.println("====================================");
+        }
+    }
+
 }
+
+    
+
