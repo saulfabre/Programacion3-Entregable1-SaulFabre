@@ -91,7 +91,7 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materia.setCalificacion(calificacion);
-                        System.out.println("CALIFICACION " + calificacion + "REGISTRADA A " + estudiante.getNombre() + " - " + materia.getNombreMateria());
+                        System.out.println("\nCALIFICACION " + calificacion + " REGISTRADA A " + estudiante.getNombre() + " - " + materia.getNombreMateria());
                         return;
                     }
                 }
@@ -115,17 +115,17 @@ public class GestionAcademica {
             System.out.println("NO ENCONTRADO: " + matricula.toUpperCase());
         }
     
-    public void buscarEstudianteNombre(String nombre) {
+    public void buscarEstudianteNombre(String nombre, String apellido) {
 
         for (Estudiante estudiante : estudiantes) {
 
-            if (nombre.equals(estudiante.getNombre())) {
+            if (nombre.equals(estudiante.getNombre()) && apellido.equals((estudiante.getApellido()))) {
                     System.out.println("\nENCONTRADO: " + nombre.toUpperCase());
                         mostrarEstudiante(estudiante);
                         return;
                     }
                 }
-            System.out.println("NO ENCONTRADO: " + nombre.toUpperCase());
+            System.out.println("NO ENCONTRADO: " + nombre.toUpperCase() + " " + apellido.toUpperCase());
         }
 
     public void mostrarEstudiantes() {
