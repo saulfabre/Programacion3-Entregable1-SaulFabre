@@ -14,78 +14,101 @@ public class Menu {
 
             opcion = mostrarMenu();
 
+            scanner.nextLine();
+
             switch (opcion) {
 
                 case 1:
 
-                    System.out.print("NOMBRE ESTUDIANTE: ");
+                    System.out.println("\n====================================");
+                    System.out.println("       REGISTRO ESTUDIANTIL " );
+
+                    System.out.print("\nNOMBRE ESTUDIANTE     : ");
                     String nombreEstudiante = scanner.nextLine();
 
-                    System.out.print("APELLIDO ESTUDIANTE: ");
+                    System.out.print("APELLIDO ESTUDIANTE   : ");
                     String apellidoEstudiante = scanner.nextLine();
 
-                    System.out.print("EDAD ESTUDIANTE: ");
+                    System.out.print("EDAD ESTUDIANTE       : ");
                     int edadEstudiante = scanner.nextInt();
 
-                    System.out.print("MATRICULA ESTUDIANTE: ");
-                    String matriculaEstudiante = scanner.next();
+                    scanner.nextLine();
 
-                    System.out.print("CARRERA ESTUDIANTE: ");
+                    System.out.print("MATRICULA ESTUDIANTE  : ");
+                    String matriculaEstudiante = scanner.nextLine();
+
+                    System.out.print("CARRERA ESTUDIANTE    : ");
                     String carreraEstudiante = scanner.nextLine();
 
                     sistema.registrarEstudiante(matriculaEstudiante, nombreEstudiante, apellidoEstudiante, edadEstudiante, carreraEstudiante);
+                    System.out.println("====================================");
 
                     break;
 
                 case 2:
 
-                    System.out.print("NOMBRE PROFESOR: ");
+                    System.out.println("\n====================================");
+                    System.out.println("       REGISTRO DE PROFESORES " );
+
+                    System.out.print("\nNOMBRE PROFESOR         : ");
                     String nombreProfesor = scanner.nextLine();
 
-                    System.out.print("APELLIDO PROFESOR: ");
+                    System.out.print("APELLIDO PROFESOR       : ");
                     String apellidoProfesor = scanner.nextLine();
 
-                    System.out.print("ESPECIALIDAD PROFESOR: ");
+                    System.out.print("ESPECIALIDAD PROFESOR   : ");
                     String especialidadProfesor = scanner.nextLine();
 
-                    System.out.print("CODIGO PROFESOR: ");
+                    System.out.print("CODIGO PROFESOR         : ");
                     int codigoProfesor = scanner.nextInt();
 
                    sistema.registrarProfesor(nombreProfesor, apellidoProfesor, especialidadProfesor, codigoProfesor);
+                   System.out.println("====================================");
 
                    break;
 
                 case 3:
 
-                    System.out.print("NOMBRE MATERIA: ");
+                    System.out.println("\n====================================");
+                    System.out.println("       REGISTRO DE MATERIAS " );
+
+                    System.out.print("\nNOMBRE MATERIA      : ");
                     String nombreMateria = scanner.nextLine();
 
-                    System.out.print("CANTIDAD CREDITOS: ");
+                    System.out.print("CANTIDAD CREDITOS   : ");
                     int cantidadCrditos = scanner.nextInt();
 
-                    System.out.print("CODIGO PROFESOR: ");
+                    System.out.print("CODIGO MATERIA      : ");
                     int codigoMateria = scanner.nextInt();
 
                    sistema.registrarMateria(nombreMateria, cantidadCrditos, codigoMateria);
+                   System.out.println("====================================");
 
                    break;
 
                 case 4:
 
-                    System.out.print("MATRICULA ESTUDIANTE: ");
-                    String matriculaEstudianteBuscado = scanner.next();
+                    System.out.println("\n====================================");
+                    System.out.println("          ASIGNAR MATERIA " );
 
-                    System.out.print("CODIGO MATERIA: ");
+                    System.out.print("\nMATRICULA ESTUDIANTE   : ");
+                    String matriculaEstudianteBuscado = scanner.nextLine();
+
+                    System.out.print("CODIGO MATERIA         : ");
                     int codigoMateriaBuscado = scanner.nextInt();
 
                     sistema.asignarMateria(matriculaEstudianteBuscado, codigoMateriaBuscado);
+                    System.out.println("====================================");
 
                     break;
 
                 case 5:
 
-                    System.out.print("MATRICULA ESTUDIANTE: ");
-                    String matriculaEstudianteRegistrado = scanner.next();
+                    System.out.println("\n====================================");
+                    System.out.println("      REGISTRAR CALIFICACION " );
+
+                    System.out.print("\nMATRICULA ESTUDIANTE: ");
+                    String matriculaEstudianteRegistrado = scanner.nextLine();
 
                     System.out.print("CODIGO MATERIA: ");
                     int codigoMateriaRegistrado = scanner.nextInt();
@@ -94,18 +117,52 @@ public class Menu {
                     double calificacionEstudiante = scanner.nextDouble();
 
                     sistema.registrarCalificacion(matriculaEstudianteRegistrado, calificacionEstudiante, codigoMateriaRegistrado);
+                    System.out.println("====================================");
 
                     break;
 
                 case 6:
 
-                    System.out.print("MATRICULA ESTUDIANTE: ");
-                    String buscarEstudianteMatricula = scanner.next();
+                    int op;
 
-                    System.out.print("NOMBRE ESTUDIANTE: ");
-                    String buscarEstudianteNombre = scanner.nextLine();
+                    System.out.println("\n1. MATRICULA ");
+                    System.out.println("2. NOMBRE \n");
+                    System.out.print("Opcion: ");
 
-                    sistema.buscarEstudiante(buscarEstudianteMatricula, buscarEstudianteNombre);
+                    op = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (op) {
+
+                        case 1:
+
+                            System.out.println("\n====================================");
+                            System.out.println("         BUSCAR ESTUDIANTE " );
+
+                            System.out.print("\nMATRICULA: ");
+                            String matricula = scanner.nextLine();
+
+                            sistema.buscarEstudianteMatricula(matricula);
+                            System.out.println("====================================");
+
+                            break;
+                    
+                        case 2:
+
+                            System.out.println("\n====================================");
+                            System.out.println("         BUSCAR ESTUDIANTE " );
+
+                            System.out.print("\nNOMBRE: ");
+                            String nombre = scanner.nextLine();
+
+                            System.out.print("APELLIDO: ");
+                            String apellido = scanner.nextLine();
+
+                            sistema.buscarEstudianteNombre(nombre, apellido);
+                            System.out.println("====================================");
+
+                            break;
+                    }
 
                     break;
 

@@ -58,9 +58,9 @@ public class Materia {
 
     public void setCantidadCreditos(int cantidadCreditos) {
 
-        if (cantidadCreditos < 1) {
+        if (cantidadCreditos < 1 || cantidadCreditos > 4) {
 
-            System.out.println("ERROR: CREDITOS MINIMO 1 ");
+            System.out.println("ERROR: CREDITOS (1,4) ");
             this.cantidadCreditos = 1;
             return;
         }

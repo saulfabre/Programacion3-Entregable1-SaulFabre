@@ -66,7 +66,7 @@ public class GestionAcademica {
 
                     if (codigo == materia.getCodigo()) {
 
-                        materiasEstudiante.add(materia);
+                        materiasEstudiante.add(new Materia(materia.getCodigo(), materia.getNombreMateria(), materia.getCantidadCreditos()));
                         System.out.println("\nMATERIA " + materia.getNombreMateria() +" ASIGNADA A: " + estudiante.getNombre().toUpperCase() + " " + estudiante.getApellido().toUpperCase());
                         return;
                     }
@@ -91,7 +91,7 @@ public class GestionAcademica {
                     if (codigo == materia.getCodigo()) {
 
                         materia.setCalificacion(calificacion);
-                        System.out.println("\nCALIFICACION " + calificacion + " REGISTRADA A " + estudiante.getNombre() + " - " + materia.getNombreMateria());
+                        System.out.println("\nCALIFICACION " + calificacion + " REGISTRADA A " + estudiante.getNombre() +" " + estudiante.getApellido() + " - " + materia.getNombreMateria());
                         return;
                     }
                 }
@@ -163,8 +163,8 @@ public class GestionAcademica {
 
     public void mostrarPromedio() {
 
-        System.out.println("====================================");
-        System.out.println("         REPORTE PROMEDIOS ");
+        System.out.println("\n====================================");
+        System.out.println("         REPORTE PROMEDIOS \n");
 
         for (Estudiante estudiante : estudiantes) {
 
@@ -194,7 +194,7 @@ public class GestionAcademica {
 
                 aprobadoDesaprobado = "APROBADO";
 
-                System.out.println(estudiante.getNombre().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
+                System.out.println(estudiante.getNombre().toUpperCase() + " " + estudiante.getApellido().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
                 System.out.println("====================================");
             }
 
@@ -202,7 +202,7 @@ public class GestionAcademica {
 
                 aprobadoDesaprobado = "DESAPROBADO";
 
-                System.out.println(estudiante.getNombre().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
+                System.out.println(estudiante.getNombre().toUpperCase() + " " + estudiante.getApellido().toUpperCase() + ": " + promedio + " - " + aprobadoDesaprobado);
                 System.out.println("====================================");
             }   
         }
